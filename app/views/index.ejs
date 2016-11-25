@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contatos</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container" ng-controller="MenuController">
+        <div class="thumbnail custom-thumbnail">
+            <img src="./img/logo.png" alt="logo">
+        </div>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <form action="/novo"> <input type="submit" value="Novo">
+                        <a href="relatorios.html" class="btn btn-primary btn-lg">Relatórios</a>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div ui-view>
+            <table class="table table-condensed">
+                <tr>
+                    <td>Nome</td>
+                    <td>Email</td>
+                    <td>Telefone</td>
+                </tr>
+                <% for (var i = 0; i< contatos.length; i++){ %>
+				<tr>
+					<td><%= contatos[i].nome %></td>
+					<td><%= contatos[i].email %></td>
+					<td><%= contatos[i].telefone %></td>                    
+				</tr>
+			    <% } %>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
