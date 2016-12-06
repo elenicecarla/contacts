@@ -39,7 +39,11 @@
 				<tr>
 					<td><%= contatos[i].nome %></td>
 					<td><%= contatos[i].email %></td>
-					<td><%= contatos[i].telefone %></td>                    
+					<td><%= contatos[i].telefone %></td>      
+                    <td>
+                        <a class="a-inside edit" href="/delete/<%=contatos[i].cpf%>">Edit</a>                       
+                        <a class="a-inside delete" href="/delete/<%=contatos[i].cpf%>">Delete</a>                       
+                    </td>                  
 				</tr>
 			    <% } %>
             </table>

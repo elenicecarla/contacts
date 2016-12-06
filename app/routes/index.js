@@ -8,4 +8,14 @@ module.exports = function(application){
             res.render("index", {contatos : result});
         });
     });
+
+
+    application.get('/delete/:cpf', function(req, res){
+        var connection = application.config.dbConnection();
+        var dao = application.app.models.contatosDAO;
+        var cpf = req.params.cpf;
+        dao.deletar(connection, cpf, function(){
+            res.redirect('/');
+        })
+    })
 }
