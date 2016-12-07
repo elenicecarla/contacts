@@ -21,24 +21,24 @@
             <div class="form-group">
                 <label class="col-md-2" for="name">CPF</label>
                 <div class="col-md-9">
-                    <input class="form-control" name="cpf" id="cpf" type="text" />
+                    <input class="form-control" name="cpf" id="cpf" type="text" required/>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-md-2" for="name">Nome</label>
                 <div class="col-md-9">
-                    <input class="form-control" name="nome" id="nome" type="text" />
+                    <input class="form-control" name="nome" id="nome" type="text" required/>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-md-2" for="sexo">Sexo</label>
                 <div class="col-md-9">
-                    <select class="form-control" name="sexo" id="sexo">
+                    <select class="form-control" name="sexo" id="sexo" required>
                               <option value="0" style="display:none;">Selecione uma opção...</option>
-                                <option value="m" >Masculino</option>
-                                <option value="f" >Feminino</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="feminino">Feminino</option>
                                 </select>
                 </div>
             </div>
@@ -46,21 +46,21 @@
             <div class="form-group">
                 <label class="col-md-2" for="datanasc">Data Nasc</label>
                 <div class="col-md-9">
-                    <input class="form-control" name="nascimento" id="nascimento" type="datetime" />
+                    <input class="form-control" name="nascimento" id="nascimento" type="date"  required/>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-md-2" for="celular">Celular</label>
                 <div class="col-md-9">
-                    <input class="form-control" name="telefone" id="telefone" type="text" />
+                    <input class="form-control" name="telefone" id="telefone" type="text" required/>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-md-2" for="email">Email</label>
                 <div class="col-md-9">
-                    <input class="form-control" name="email" id="email" type="text" />
+                    <input class="form-control" name="email" id="email" type="text" required/>
                 </div>
             </div>
 
@@ -94,7 +94,7 @@
 
             </fieldset>
             <button type="submit" class="btn btn-primary">Salvar</button>
-            <a href="index.html" class="btn btn-danger">Cancelar</a>
+            <button class="btn btn-danger" id="cancel"  >Cancelar</a>
 
         </form>
     </div>

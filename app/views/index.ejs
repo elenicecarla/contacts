@@ -15,17 +15,9 @@
         <div class="thumbnail custom-thumbnail">
             <img src="./img/logo.png" alt="logo">
         </div>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <form action="/novo"> <input type="submit" value="Novo">
-                        <a href="relatorios.html" class="btn btn-primary btn-lg">Relatórios</a>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
+            <form action="/novo"> 
+                <button type="submit" class="btn btn-primary" value="Novo">Novo</button>
+            </form>
 
     <div class="container">
         <div ui-view>
@@ -47,6 +39,7 @@
 				</tr>
 			    <% } %>
             </table>
+            <form action="/contatos/filter/masculino"> <button type="submit" class="btn btn-primary">Contatos do Sexo masculino</button>  
         </div>
     </div>
 </body>

@@ -24,9 +24,6 @@ app.use(express.static("public"))
 
 app.use('/contatos', require('./../app/api/api.js'));
 
-consign().include('app/routes')
-         .then('config/dbConnection.js')
-         .then('app/models')
-         .into(app);
+consign().include('app/routes').into(app);
 
 module.exports = app;

@@ -11,8 +11,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Clientes</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="./../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../../css/mystyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
@@ -20,15 +20,14 @@
 <body>
     <div class="cadastro">
 
-
-        <form action="/salvar_edit" class="form-horizontal" id="form-contato" method="POST">
+        <form action="/contatos/salvar_edit/<%=contato[0].cpf %>" class="form-horizontal" id="form-contato" method="POST">
 
             <legend>Dados do contato</legend>
 
             <div class="form-group">
                 <label class="col-md-2" for="name">CPF</label>
                 <div class="col-md-9">
-                    <input class="form-control" name="cpf" id="cpf" type="text" value="<%=contato[0].cpf %>">
+                    <input class="form-control" name="cpf" id="cpf" type="number" value="<%=contato[0].cpf %>" disabled>
                     
                 </div>
             </div>

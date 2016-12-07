@@ -4,13 +4,14 @@ module.exports = function(app){
     });
 
     app.post('/salvar', function(req, res){
-        var contato = req.body;
-        var connection =  app.config.dbConnection();
-
-        var contatosDAO = app.app.models.contatosDAO;
-
-        contatosDAO.salvarContato(connection, contato, function(){
-            res.redirect("/");
-        })
+        let contato = req.body;
+        req.getConnection(function (err, connection) {
+            connection.query('insert into contatos(nome, email, telefone, cpf) values ("'+contato.nome+'","'+contato.email+'", "'+contato.telefone+'", "'+contato.cpf+'")', function(err, rows){     
+                if(err)
+                   console.log("Erro") 
+                res.redirect("/");
+            });
+        
+        });
     });
 }
