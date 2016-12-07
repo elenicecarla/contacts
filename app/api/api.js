@@ -37,9 +37,8 @@ router.get("/edit/:cpf", function(req, res){
 router.post("/salvar_edit/:cpf", function(req, res){
      let contato = req.body;
      let cpf = req.params.cpf;
-     console.log(contato);
      req.getConnection(function (err, connection) {
-      connection.query("UPDATE contatos SET nome='"+contato.nome+"' WHERE cpf='"+cpf+"'");
+      connection.query("UPDATE contatos SET nome='"+contato.nome+"', email='"+contato.email+"', telefone='"+contato.telefone+"', sexo='"+contato.sexo+"', endereco='"+contato.endereco+"', bairro='"+contato.bairro+"', cidade='"+contato.cidade+"' WHERE cpf='"+cpf+"'");
              if(err)
                  console.log("Error saving : %s ",err );
              res.redirect('/');
@@ -51,14 +50,14 @@ router.get("/filter/:sexo", function(req, res){
      req.getConnection(function (err, connection) {
       connection.query("SELECT * FROM contatos WHERE sexo = '"+ sexo +"'", function(err, rows)
         {
-            
              if(err)
                  console.log("Error editing : %s ",err );
              res.render("index",{contatos:rows});
-             
         });
 })
 });
+
+
 
 module.exports = router;
 
