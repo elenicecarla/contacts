@@ -14,3 +14,13 @@
     overflow: hidden;
     
 }
+
+.btnPreto{
+    background: black;
+    color: white;
+}
+
+.btnRosa{
+    background: pink;
+    color: black;
+}

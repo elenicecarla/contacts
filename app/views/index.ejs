@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Contatos</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="./../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../../css/mystyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
@@ -13,7 +13,7 @@
 <body>
     <div class="container" ng-controller="MenuController">
         <div class="thumbnail custom-thumbnail">
-            <img src="./img/logo.png" alt="logo">
+            <img src="./../../img/logo.png" alt="logo">
         </div>
             <form action="/novo"> 
                 <button type="submit" class="btn btn-primary" value="Novo">Novo</button>
@@ -33,13 +33,17 @@
 					<td><%= contatos[i].email %></td>
 					<td><%= contatos[i].telefone %></td>      
                     <td>
-                        <a class="a-inside edit" href="/contatos/edit/<%=contatos[i].cpf%>">Edit</a>                       
-                        <a class="a-inside delete" href="/contatos/delete/<%=contatos[i].cpf%>">Delete</a>                       
+                        <form action="/contatos/edit/<%=contatos[i].cpf%>"><button type="submit" class="btn btn-primary btn-xs">Editar</button></form>                       
+                        <form action="/contatos/delete/<%=contatos[i].cpf%>"><button type="submit" class="btn btn-danger btn-xs">Deletar</button></form>                       
                     </td>                  
 				</tr>
-			    <% } %>
+			    <% } %>  
+                <tr>
+                    <td><form action="/"> <button type="submit" class="btn btn-primary btnPreto">Todos Contatos</button></form></td>
+                    <td><form action="/contatos/filter/masculino"> <button type="submit" class="btn btn-primary btn-sm">Contatos do Sexo masculino</button></form></td>
+                    <td><form action="/contatos/filter/feminino"> <button type="submit" class="btn btn-primary btn-sm btnRosa">Contatos do Sexo feminino</button>  </form></td>
+                </tr>
             </table>
-            <form action="/contatos/filter/masculino"> <button type="submit" class="btn btn-primary">Contatos do Sexo masculino</button>  
         </div>
     </div>
 </body>

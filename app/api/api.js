@@ -49,7 +49,7 @@ router.post("/salvar_edit/:cpf", function(req, res){
 router.get("/filter/:sexo", function(req, res){
      let sexo = req.params.sexo;
      req.getConnection(function (err, connection) {
-      connection.query("SELECT * FROM contatos WHERE sexo = "+ sexo , function(err, rows)
+      connection.query("SELECT * FROM contatos WHERE sexo = '"+ sexo +"'", function(err, rows)
         {
             
              if(err)
