@@ -57,6 +57,20 @@ router.get("/filter/:sexo", function(req, res){
 })
 });
 
+router.get("/filter/name/:name", function(req, res){
+     let nome = req.params.name;
+     req.getConnection(function (err, connection) {
+      connection.query("SELECT * FROM contatos WHERE nome = '"+ nome +"'", function(err, rows)
+        {
+             if(err)
+                 console.log("Error editing : %s ",err );
+             res.render("index",{contatos:rows});
+        });
+})
+});
+
+
+
 router.get("/show/:cpf", function(req, res){
      let cpf = req.params.cpf;
      req.getConnection(function (err, connection) {

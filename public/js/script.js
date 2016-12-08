@@ -13,7 +13,9 @@ function buscar(cpf){
             url: "/contatos/show/" + cpf
         })
         .done(function(contact){
-            window.alert("Nome: " + contact[0].nome + "\nSexo: "+contact[0].sexo +"\nCelular: " +contact[0].telefone + "\nEndereço: "+contact[0].endereco+ " - "+
-            contact[0].bairro+", "+contact[0].cidade+ "\nEmail: "+contact[0].email+"\n");
+            var infos = "Nome: " + contact[0].nome + "\nSexo: "+contact[0].sexo +"\nCelular: " +contact[0].telefone + "\nEndereço: "+contact[0].endereco+ " - "+
+            contact[0].bairro+", "+contact[0].cidade+ "\nEmail: "+contact[0].email+"\n"
+
+            window.alert(infos, "Contato");
         });
 }
