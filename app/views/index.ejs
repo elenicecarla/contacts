@@ -8,30 +8,38 @@
     <link rel="stylesheet" href="./../../css/mystyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="./js/script.js"></script>
 </head>
 
-<body>
+<body class="body">
     <div class="container" ng-controller="MenuController">
         <div class="thumbnail custom-thumbnail">
             <img src="./../../img/logo.png" alt="logo">
         </div>
             <form action="/novo"> 
-                <button type="submit" class="btn btn-primary" value="Novo">Novo</button>
+                <button type="submit" class="btn btn-primary" value="Novo">Cadastrar novo Contato</button>
             </form>
 
     <div class="container">
         <div ui-view>
-            <table class="table table-condensed">
+            <table class="table table-striped table-condensed">
                 <tr>
+                    <td></td>
+                    <td>CPF</td>
                     <td>Nome</td>
                     <td>Email</td>
                     <td>Telefone</td>
+                    <td>Ações</td>
                 </tr>
                 <% for (var i = 0; i< contatos.length; i++){ %>
 				<tr>
-					<td><%= contatos[i].nome %></td>
-					<td><%= contatos[i].email %></td>
-					<td><%= contatos[i].telefone %></td>      
+
+                    <td> <button onclick="buscar('<%=contatos[i].cpf%>');" class="btn btn-primary btn-xs">Exibir</button>
+                    </td>
+                    <td id="cpf"><%= contatos[i].cpf %></td>
+					<td id="nome"><%= contatos[i].nome %></td>
+					<td id="email"><%= contatos[i].email %></td>
+					<td id="telefone"><%= contatos[i].telefone %></td>      
                     <td>
                         <form action="/contatos/edit/<%=contatos[i].cpf%>"><button type="submit" class="btn btn-primary btn-xs">Editar</button></form>                       
                         <form action="/contatos/delete/<%=contatos[i].cpf%>"><button type="submit" class="btn btn-danger btn-xs">Deletar</button></form>                       

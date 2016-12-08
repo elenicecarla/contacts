@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./../../css/mystyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/js/script.js"></script>
 </head>
 
 <body>
@@ -27,7 +28,7 @@
             <div class="form-group">
                 <label class="col-md-2" for="name">CPF</label>
                 <div class="col-md-9">
-                    <input class="form-control" name="cpf" id="cpf" type="number" value="<%=contato[0].cpf %>" disabled>
+                    <input class="form-control" name="cpf" id="cpf" type="text" value="<%=contato[0].cpf %>" onkeypress="mascara(this, '###.###.###-##')" maxlength="14" disabled>
                     
                 </div>
             </div>
@@ -53,7 +54,7 @@
             <div class="form-group">
                 <label class="col-md-2" for="celular">Celular</label>
                 <div class="col-md-9">
-                    <input class="form-control" name="telefone" id="telefone" type="text" value="<%=contato[0].telefone %>" />
+                    <input class="form-control" name="telefone" id="telefone" type="text" value="<%=contato[0].telefone %>" onkeypress="mascara(this, '## # ####-####')" maxlength="14" required/>
                 </div>
             </div>
 
@@ -87,7 +88,9 @@
 
             </fieldset>
             <button type="submit" class="btn btn-primary">Salvar</button>
-            <a href="index.html" class="btn btn-danger">Cancelar</a>
+            <form action="/">
+                <button type="submit">Cancelar</button>
+            </form>
 
         </form>
     </div>

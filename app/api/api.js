@@ -6,7 +6,7 @@ router.get("/delete/:cpf", function(req, res){
     
      req.getConnection(function (err, connection) {
         
-        connection.query("DELETE FROM contatos WHERE cpf = "+ cpf , function(err, rows)
+        connection.query("DELETE FROM contatos WHERE cpf = '"+ cpf +"'" , function(err, rows)
         {
             
              if(err)
@@ -23,7 +23,7 @@ router.get("/delete/:cpf", function(req, res){
 router.get("/edit/:cpf", function(req, res){
      let cpf = req.params.cpf;
      req.getConnection(function (err, connection) {
-      connection.query("SELECT * FROM contatos WHERE cpf = "+ cpf , function(err, rows)
+      connection.query("SELECT * FROM contatos WHERE cpf = '"+ cpf +"'" , function(err, rows)
         {
             
              if(err)
@@ -57,7 +57,19 @@ router.get("/filter/:sexo", function(req, res){
 })
 });
 
-
+router.get("/show/:cpf", function(req, res){
+     let cpf = req.params.cpf;
+     req.getConnection(function (err, connection) {
+      connection.query("SELECT * FROM contatos WHERE cpf = '"+ cpf +"'" , function(err, result)
+        {
+            
+             if(err)
+                 console.log("Error editing : %s ",err );
+            console.log(result.nome);
+             res.json(result);
+        });
+})
+});
 
 module.exports = router;
 
